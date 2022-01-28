@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>ICSE Fake Web Service</title>
+
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <form action="form_submit.html">
+            <h1>A HTML Form Example</h1>
+
+            <div>
+                <label for="email-input">Email address</label>
+                <input name="email" type="email" id="email-input" placeholder="name@example.com">
+            </div>
+            <div>
+                <label for="password-input">Password</label>
+                <input name="password" type="password" id="password-input"
+                    pattern="^[a-zA-Z0-9._-]+(\+[a-zA-Z0-9._-]+)*@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$"
+                    placeholder="aaa">
+            </div>
+            <a href="pageToBeCrawled.html">a link to another web page within the same web service</a>
+
+            <button type="submit" onclick="regexCheck()">Sign in</button>
+        </form>
+        <script>
+            function regexCheck() {
+                const regexp = /[A-Za-z]{3}/g;
+                let text = document.getElementById("email-input").value;
+                let result = regexp.exec(text);
+            }
+
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>
