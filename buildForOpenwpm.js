@@ -30,7 +30,7 @@ for (let domain of Object.keys(webpageObj)) {
 }
 
 console.log(`${numPages} pages have forms`)
-fs.writeFileSync('OpenWPMListInput.json', JSON.stringify(listOfPages));
+fs.writeFileSync(`${process.env.HOME}/OpenWPMListInput.json`, JSON.stringify(listOfPages));
 
 
 
