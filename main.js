@@ -4,6 +4,14 @@ const fs = require('fs');
 
 log.setLevel(log.LEVELS.DEBUG);
 
+if (!fs.existsSync('./apify_storage/datasets')) {
+	fs.mkdirSync('./apify_storage/datasets');
+}
+
+if (!fs.existsSync('./apify_storage/request_queues')) {
+	fs.mkdirSync('./apify_storage/request_queues');
+}
+
 fs.readdirSync('./apify_storage/datasets/').forEach(domain => {
     fs.rmSync(`./apify_storage/datasets/${domain}`, { recursive: true, force: true });
 });
@@ -11,6 +19,8 @@ fs.readdirSync('./apify_storage/datasets/').forEach(domain => {
 fs.readdirSync('./apify_storage/request_queues/').forEach(queue => {
     fs.rmSync(`./apify_storage/request_queues/${queue}`, { recursive: true, force: true });
 });
+
+
 
 const WEBSITE_RANGE_START = 1; // from the top # website on the list
 const WEBSITE_RANGE_END = 200; // to the top # website on the list
